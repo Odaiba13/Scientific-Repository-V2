@@ -1,0 +1,32 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid" id="wrap">
+            <h4 class="mt-5 fw-bold text-center title">Algorithm Upload</h4>
+            <!-- <div class="container-fluid wrapper">
+                <h4>Drag & Drop file(s) here</h4>
+                <span>or</span>
+                <br>
+                <br>
+                <button type="button" class="btn btn-outline-primary">Browse Files</button>
+            </div> -->
+            <!-- <input class="form-control"  type="file" id="formFileMultiple" multiple> -->
+            
+            <form [formGroup]="AlgorithmForm" (ngSubmit)="sendDataAlgorithm()">
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmFile">Algorithm URL</label>
+                    <input type="url" class="form-control" formControlName="algorithmFile" id="algorithmFile">
+                </div>
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmInfo">Algorithm Information</label>
+                    <textarea class="form-control"  rows="2" formControlName="algorithmInfo" id="algorithmInfo"></textarea>
+                </div>
+                <div class="mt-4">
+                    <!-- routerLink="/myalgorithms" -->
+                    <button class="btn btn-primary" type="submit"  >Save</button>
+                    <button class="btn btn-secondary ms-4"  type="reset">Clean</button>
+                </div>
+            </form>
+    </div>
+</div>
