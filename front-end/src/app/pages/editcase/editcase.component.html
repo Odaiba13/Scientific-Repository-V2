@@ -1,0 +1,41 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-5 pb-3 " id="wrap">
+        <h2 class="text-center title">Case Data</h2>
+        <hr>
+        <form  class="row g-2 px-2" novalidate>
+            <div class="form-group">
+                <label class="form-label" for="caseName">Case Name</label>
+                <input type="text" class="form-control" Name="caseName" id="caseName">
+                
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerName">Type Of Cancer</label>
+                <input type="text" class="form-control"  Name="cancerName" id="cancerName">
+        
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerDescription">Extra Information About Type of Cancer</label>
+                <textarea class="form-control"  rows="2" Name="cancerDescription" id="cancerDescription"></textarea>
+            </div>
+            <div class="row align-items-center">
+                <div class="form-check pt-4 ps-5 col-md-4">
+                    <input class="form-check-input" type="checkbox" Name="Noncoplanar" id="noncoplanar" checked>
+                    <label class="form-check-label" for="noncoplanar">Noncoplanar</label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label class="form-label" for="dataCase">Extra Information About Case</label>
+                <textarea type="text" class="form-control"  rows="1" Name="dataCase" id="datacase"></textarea>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-primary" type="submit" >Save</button>
+                <button class="btn btn-secondary ms-4"  type="reset">Clean</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
