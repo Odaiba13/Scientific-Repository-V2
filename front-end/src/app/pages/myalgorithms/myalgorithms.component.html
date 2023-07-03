@@ -1,0 +1,41 @@
+<div class="container row">
+  <div>
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="container-fluid">
+        <table class="table align-middle">
+            <thead>
+              <h4 class="text-center">My Algorithms</h4>
+            </thead>
+               <tbody>
+              <tr *ngFor="let algorithm of listaAlgorithm let i=index" >
+                <td>{{i+1}}.-&nbsp;&nbsp;{{algorithm.algorithmName}} </td>
+                <td> <button type="button" class="btn btn-primary">View</button></td>
+                <td><button type="button" class="btn btn-outline-primary">Edit</button></td>
+                <td><button type="button" class="btn btn-dark btn-sm" (click)="imprimir()"><i class="fa-solid fa-file-pdf"></i></button></td>
+                <td><button type="button" class="btn btn-danger btn-sm " aria-label="Delete"> Delete  </button></td>
+              </tr>
+            </tbody>
+              <!-- <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let algorithm of algorithms; let i = index"
+                  [class.active]="i == currentIndex"
+                  (click)="setActiveAlgorithm(algorithm, i)"
+                >
+                  {{ algorithm.algorithmName }}
+                </li>
+              </ul>
+              <div class="col-md-6">
+                <div *ngIf="currentAlgorithm">
+                  <h4>Algorithms</h4>
+                  <div>
+                    <label><strong>Name:</strong></label> {{currentAlgorithm}}
+                  </div>
+                </div>
+                </div> -->
+            
+           
+          </table>
+    </div>
+</div>
