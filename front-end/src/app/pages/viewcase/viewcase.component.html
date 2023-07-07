@@ -1,0 +1,24 @@
+<div class="table-responsive" id="wrap">
+    <table class="table table-bordered border-dark border border-2">
+        <thead class="table-dark">
+          <tr >
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">DATA</th>
+            <th scope="col">Noncoplanar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let case of Case let i=index">
+            <th scope="row">1</th>
+            <td>{{case.caseName}}</td>
+            <td>{{case.dataCase}}</td>
+            <td>{{case.Noncoplanar}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-dark btn-sm" (click)="imprimir()"><i class="fa-solid fa-file-pdf"></i></button>
+
+      <button class="btn btn-secondary ms-4" routerLink="/mycases">Back</button>
+</div>

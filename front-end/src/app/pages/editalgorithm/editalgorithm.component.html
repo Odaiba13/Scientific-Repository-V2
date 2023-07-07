@@ -1,0 +1,57 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-5 pb-3" id="wrap">
+            <h2 class="mt-3 text-center title">Edit Algorithm</h2>
+            <form  class="row g-2 px-2" *ngFor="let algorithm of Algorithm" [formGroup]="editAlgorithmForm" novalidate>
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmName">Algorithm Name: <span style="font-size: 18px; color: blue;">{{algorithm.algorithmName}}</span></label>
+                    <input type="text" class="form-control" formControlName="algorithmName"  id="algorithmName"> 
+                    <!-------------------- Inicio validacion ----------------->
+                    <div *ngIf="editAlgorithmForm.controls['algorithmName'].invalid && (editAlgorithmForm.controls['algorithmName'].dirty) || (editAlgorithmForm.controls['algorithmName'].touched)">
+                        <div *ngIf="editAlgorithmForm.controls['algorithmName'].hasError('required')">
+                            <span class="text-danger">*Algorithm Name can't be blank</span>
+                        </div>
+                        <div *ngIf="editAlgorithmForm.controls['algorithmName'].hasError('maxlength')">
+                         <span class="text-danger">*Data too long for field Algorithm Name, Max length is 60</span>
+                        </div>
+                    </div>  
+                     <!--------------------- Fin validacion -------------------> 
+            </div> 
+
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmFile">Algorithm URL: <span style="font-size: 18px; color: blue;">{{algorithm.algorithmFile}}</span> </label>
+                    <input type="url" class="form-control" formControlName="algorithmFile" id="algorithmFile">
+                    <!-------------------- Inicio validacion ----------------->
+                    <div *ngIf="editAlgorithmForm.controls['algorithmFile'].invalid && (editAlgorithmForm.controls['algorithmFile'].dirty) || (editAlgorithmForm.controls['algorithmFile'].touched)">
+                        <div *ngIf="editAlgorithmForm.controls['algorithmFile'].hasError('required')">
+                             <span class="text-danger">*URL can't be blank</span>
+                        </div>
+                        <div *ngIf="editAlgorithmForm.controls['algorithmFile'].hasError('pattern')">
+                            <span class="text-danger">*Format not allowed// URL invalid</span>
+                       </div>
+                        <div *ngIf="editAlgorithmForm.controls['algorithmFile'].hasError('maxlength')">
+                             <span class="text-danger">*Data too long for field URL, Max length is 200</span>
+                        </div>
+                    </div>   
+                <!--------------------- Fin validacion -------------------> 
+                </div>
+                <div class="form-group mt-4">
+                    <label class="form-label" for="algorithmInfo">Algorithm Information: <span style="font-size: 18px; color: blue;">{{algorithm.algorithmInfo}} </span> </label>
+                    <textarea class="form-control"  rows="2" formControlName="algorithmInfo" id="algorithmInfo"></textarea>
+                    <!-------------------- Inicio validacion ----------------->
+                    <div  *ngIf="editAlgorithmForm.controls['algorithmInfo'].invalid && (editAlgorithmForm.controls['algorithmInfo'].dirty) || (editAlgorithmForm.controls['algorithmInfo'].touched)">
+                        <div *ngIf="editAlgorithmForm.controls['algorithmInfo'].hasError('maxlength')">
+                             <span class="text-danger">*Data too long for field URL, Max length is 400</span>
+                        </div>
+                    </div>  
+                <!--------------------- Fin validacion -------------------> 
+                </div>
+                <div class="mt-4" *ngFor="let algorithm of Algorithm">
+                    <button class="btn btn-primary" [disabled]="editAlgorithmForm.invalid" type="button" (click)="updateAlgorithm(algorithm.idAlgorithm,editAlgorithmForm)" >Confirm</button>
+                    <button class="btn btn-secondary ms-4" routerLink="/myalgorithms">Back</button>
+                </div>
+            </form>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container row">
+  <div>
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="container-fluid">
+        <table class="table align-middle">
+            <thead>
+              <h4 class="text-center">My Algorithms</h4>
+            </thead>
+               <tbody class="table-group-divider">
+              <tr *ngFor="let algorithm of listaAlgorithm let i=index" >
+                <td>{{i+1}}.-&nbsp;&nbsp;{{algorithm.algorithmName}} </td>
+                <td> <button type="button" class="btn btn-primary" [routerLink]="['/viewalgorithm/',algorithm.idAlgorithm]"> View </button></td>
+                <td><button type="button" class="btn btn-outline-primary" [routerLink]="['/editalgorithm/',algorithm.idAlgorithm]">Edit</button></td>
+                <!-- <td><button type="button" class="btn btn-dark btn-sm" (click)="imprimir()"><i class="fa-solid fa-file-pdf"></i></button></td> -->
+                <!-- <td><button type="button" class="btn btn-danger btn-sm "  (click)="deleteAlgorithm(algorithm.idAlgorithm)" > Delete  </button></td> -->
+                <td><!------------------ INICIO Modal------------------->
+                    <button class="btn btn-danger btn-sm"type="button" data-bs-toggle="modal" data-bs-target="#modalAddOrgan">Delete</button>
+                   <div class="modal fade" id="modalAddOrgan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                       <div class="modal-dialog  modal-sm">
+                         <div class="modal-content">
+                           <div class="modal-header">
+                             <p class="modal-title" id="exampleModalLabel">Delete Case</p>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           </div>
+                           <div class="modal-body ">
+                               <h5>¿Do you Really Want to Delete this Algorithm?</h5>
+                           </div>
+                           <div class="modal-footer">
+                               <button  class="btn btn-danger btn-sm" type="button" (click)="deleteAlgorithm(algorithm.idAlgorithm)"  data-bs-dismiss="modal">Confirm</button>
+                               <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Close</button>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+              
+                 <!----------------------------- TERMINO Modal----------------------></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+ <!------------------ INICIO Modal------------------->
+ <!-- <div class="container">
+  <button class="btn btn-primary"type="button" data-bs-toggle="modal" data-bs-target="#modalAddOrgan">Delete</button>
+  <div class="modal fade" id="modalAddOrgan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Organ Affected</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+              <h2>¿Do you Really Want to Delete this Case?</h2>
+          </div>
+          <div class="modal-footer">
+              <button  class="btn btn-primary" type="button" (click)="deleteAlgorithm(algorithm.idAlgorithm)"  data-bs-dismiss="modal">Save</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+--------------------------- TERMINO Modal-------------------- -->

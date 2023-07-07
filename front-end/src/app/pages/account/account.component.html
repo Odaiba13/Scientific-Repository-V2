@@ -1,0 +1,34 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-4 pb-3" id="wrap">
+        <form [formGroup]="accountForm" novalidate> 
+            <h2 class="text-center py-3">My Account</h2>
+            <hr>
+            <div class="form-group px-4" >
+                <label for="userName" class="col-form-label">User Name: </label>
+                <input class="form-control"  formControlName="userName" id="userName" type="text">
+            </div>
+            <br>
+            <div class="form-group px-4">
+                <label for="Email" class="col-form-label">E-mail: </label>
+                <input class="form-control" formControlName="Email" id="Email" type="text" >
+            </div>
+            <br>
+            <div class="form-group px-4">
+                <label for="Charge" class="col-form-label">Charge: </label>
+                <input class="form-control" id="Charge" type="text" >
+            </div>
+            <br>
+            <div class="form-group px-4">
+                <label for="userPassword" class="col-form-label">Password: </label>
+                <input class="form-control" id="userPassword" type="userPassword" >
+            </div>
+            <br>
+            <div class="text-center form-group" id="btn">
+                <button class="btn btn-primary" type="button">Edit Account</button>
+            </div>
+        </form>
+    </div>
+</div>

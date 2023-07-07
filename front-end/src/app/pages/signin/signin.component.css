@@ -1,0 +1,30 @@
+input{
+    border-radius: 3px;
+}
+.container{
+    max-width:100%;
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+#wrap{
+    width: 360px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 8px;
+    background-color:whitesmoke;
+}
+#addnew{
+    width: 380px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+input.ng-invalid.ng-touched{
+    border: solid 2.35px red;
+}
+/* input.ng-valid{
+    border: solid 2px rgb(148, 224, 33);
+} */
+/* input:focus{
+    border: solid 3px red;
+    box-shadow: 0 0 rgba(255, 0, 0, .2);
+} */

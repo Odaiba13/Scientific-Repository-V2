@@ -1,0 +1,23 @@
+<div class="table-responsive" id="wrap">
+    <table class="table table-bordered border-dark border border-2">
+        <thead class=" table-dark">
+          <tr >
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">URL</th>
+            <th scope="col">Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let algorithm of Algorithm let i=index">
+            <th scope="row">1</th>
+            <td>{{algorithm.algorithmName}}</td>
+            <td>{{algorithm.algorithmFile}}</td>
+            <td>{{algorithm.algorithmInfo}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-dark btn-sm" (click)="imprimir()"><i class="fa-solid fa-file-pdf"></i></button>
+
+      <button class="btn btn-secondary ms-4" routerLink="/myalgorithms">Back</button>
+</div>

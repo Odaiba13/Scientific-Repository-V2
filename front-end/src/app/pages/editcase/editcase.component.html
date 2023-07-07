@@ -1,0 +1,76 @@
+<div>
+    <app-sidebar></app-sidebar>
+</div>
+<div class="container row">
+    <div class="container-fluid my-5 pb-3 " id="wrap">
+        <h2 class="text-center title">Edit Case Data</h2>
+        <hr>
+        <form  class="row g-2 px-2" [formGroup]="caseEditForm" novalidate>
+            <div class="form-group">
+                <label class="form-label" for="caseName">Case Name</label>
+                <input type="text" class="form-control" formControlName="caseName" id="caseName">
+                 <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseEditForm.controls['caseName'].invalid && (caseEditForm.controls['caseName'].dirty) || (caseEditForm.controls['caseName'].touched)">
+                    <div *ngIf="caseEditForm.controls['caseName'].hasError('required')">
+                        <span class="text-danger">*Field Case Name can't be blank</span>
+                    </div>
+                    <div *ngIf="caseEditForm.controls['caseName'].hasError('maxlength')">
+                        <span class="text-danger">*Data too long for field Case Name, Max length is 100</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerName">Type Of Cancer</label>
+                <input type="text" class="form-control"  formControlName="cancerName" id="cancerName">
+                      <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseEditForm.controls['cancerName'].invalid && (caseEditForm.controls['cancerName'].dirty) || (caseEditForm.controls['cancerName'].touched)">
+                    <div *ngIf="caseEditForm.controls['cancerName'].hasError('required')">
+                        <span class="text-danger">*Field Type of cancer can't be blank</span>
+                    </div>
+                    <div *ngIf="caseEditForm.controls['cancerName'].hasError('maxlength')">
+                        <span class="text-danger">*Data too long for field Type Of Cancer, Max length is 100</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="cancerDescription">Extra Information About Type of Cancer</label>
+                <textarea class="form-control"  rows="2" formControlName="cancerDescription" id="cancerDescription"></textarea>
+                <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseEditForm.controls['cancerDescription'].invalid && (caseEditForm.controls['cancerDescription'].dirty) || (caseEditForm.controls['cancerDescription'].touched)">
+                    <div *ngIf="caseEditForm.controls['cancerDescription'].hasError('maxlength')">
+                        <span class="text-danger">*Data too long for field Extra Information, Max length is 200</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="row align-items-center">
+                <div class="form-check pt-4 ps-5 col-md-4">
+                    <input class="form-check-input" type="checkbox" formControlName="Noncoplanar" id="noncoplanar" checked>
+                    <label class="form-check-label" for="noncoplanar">Noncoplanar</label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label class="form-label" for="dataCase">Data about Case</label>
+                <textarea type="text" class="form-control"  rows="1" formControlName="dataCase" id="datacase"></textarea>
+                     <!-------------------- Inicio validacion ----------------->
+                <div *ngIf="caseEditForm.controls['dataCase'].invalid && (caseEditForm.controls['dataCase'].dirty) || (caseEditForm.controls['dataCase'].touched)">
+                    <div *ngIf="caseEditForm.controls['dataCase'].hasError('required')">
+                        <span class="text-danger">*Field Extra Information can't be blank</span>
+                    </div>
+                    <div *ngIf="caseEditForm.controls['dataCase'].hasError('maxlength')">
+                        <span class="text-danger">*Data too long for field Extra Information, Max length is 100</span>
+                    </div>
+                </div>  
+                <!--------------------- Fin validacion -------------------> 
+            </div>
+            <div class="mt-4" *ngFor="let case of Case">
+                <button class="btn btn-primary" [disabled]="caseEditForm.invalid" type="button" (click)="updateCase(case.idCase,caseEditForm)" >Confirm</button>
+                <button class="btn btn-secondary ms-4" routerLink="/mycases">Back</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
